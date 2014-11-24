@@ -25,8 +25,9 @@ class Trajectory;
 #include "Alignment/LaserAlignment/interface/TsosVectorCollection.h"
 #include "DataFormats/Alignment/interface/TkFittedLasBeamCollectionFwd.h"
 #include "DataFormats/Alignment/interface/AliClusterValueMapFwd.h"
+#include "FWCore/Framework/interface/Event.h"
 
-namespace edm { class EventID; class RunID; class EventSetup; class ParameterSet; }
+namespace edm { class EventSetup; class ParameterSet; }
 namespace reco { class Track; class BeamSpot; }
 
 class AlignmentAlgorithmBase
@@ -47,7 +48,7 @@ public:
 	      const AliClusterValueMap *clusterValueMap) 
       : eventId_(eventId), trajTrackPairs_(trajTrackPairs), beamSpot_(beamSpot), clusterValueMap_(clusterValueMap) {}
 
-    const edm::EventID                 &eventId_;
+    const edm::EventID                 eventId_;
     const ConstTrajTrackPairCollection &trajTrackPairs_;
     const reco::BeamSpot               &beamSpot_;
     const AliClusterValueMap           *clusterValueMap_;///might be null!
@@ -58,7 +59,7 @@ public:
     EndRunInfo(const edm::RunID &runId, const TkFittedLasBeamCollection *tkLasBeams,
 	       const TsosVectorCollection *tkLasBeamTsoses)
       : runId_(runId), tkLasBeams_(tkLasBeams), tkLasBeamTsoses_(tkLasBeamTsoses) {}
-    const edm::RunID &runId_;
+    const edm::RunID runId_;
     const TkFittedLasBeamCollection *tkLasBeams_; /// might be null!
     const TsosVectorCollection *tkLasBeamTsoses_; /// might be null!
   };
