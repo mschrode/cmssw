@@ -1,0 +1,6 @@
+<use name="FWCore/Framework"/>
+<use name="FWCore/MessageLogger"/>
+<use name="FWCore/ParameterSet"/>
+<use name="rootcore"/>
+<export>
+</export>
