@@ -160,7 +160,7 @@ ApeEstimatorSummary::fillDescriptions( edm::ConfigurationDescriptions & descript
 void
 ApeEstimatorSummary::openInputFile(){
   const std::string inputFileName(parameterSet_.getParameter<std::string>("InputFile"));
-  ifstream inputFileStream;
+  std::ifstream inputFileStream;
   // Check if baseline file exists
   inputFileStream.open(inputFileName.c_str());
   if(inputFileStream.is_open()){
@@ -364,7 +364,7 @@ ApeEstimatorSummary::calculateApe(){
    TTree* baselineTreeY(0);
    TTree* sectorNameBaselineTree(0);
    if(!setBaseline){
-     ifstream baselineFileStream;
+     std::ifstream baselineFileStream;
      // Check if baseline file exists
      baselineFileStream.open(baselineFileName.c_str());
      if(baselineFileStream.is_open()){
@@ -501,7 +501,7 @@ ApeEstimatorSummary::calculateApe(){
    
    
    // Set up text file for writing out APE values per module
-   ofstream apeOutputFile;
+   std::ofstream apeOutputFile;
    if(!setBaseline){
      const std::string apeOutputFileName(parameterSet_.getParameter<std::string>("ApeOutputFile"));
      apeOutputFile.open(apeOutputFileName.c_str());

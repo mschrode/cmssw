@@ -169,7 +169,7 @@ TrackListReader::beginJob(){
   // Check if input file exists
   TFile* file(0);
   const std::string trackListFileName(parameterSet_.getParameter<std::string>("trackListFileName"));
-  ifstream inputStream;
+  std::ifstream inputStream;
   inputStream.open(trackListFileName.c_str());
   if(inputStream.is_open()){
   inputStream.close();
