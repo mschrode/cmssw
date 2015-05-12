@@ -1,0 +1,14 @@
+<use name="FWCore/Utilities"/>
+<use name="FWCore/ServiceRegistry"/>
+<use name="FWCore/MessageLogger"/>
+<use name="FWCore/Common"/>
+<use name="DataFormats/Common"/>
+<use name="DataFormats/TrackReco"/>
+<use name="DataFormats/Math"/>
+<use name="CommonTools/UtilAlgos"/>
+<use name="CommonTools/Utils"/>
+<use name="root"/>
+<library file="*.cc" name="ApeEstimatorUtilsPlugins">
+  <use name="ApeEstimator/Utils"/>
+  <flags EDM_PLUGIN="1"/>
+</library>

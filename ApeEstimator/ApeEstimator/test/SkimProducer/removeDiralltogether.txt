@@ -1,0 +1,1 @@
+cmsLs /store/user/miheejo/MCsample_pythiagun_445patch1/HiOnia2MuMuPAT | awk '{if ($5!="") print $5}' | xargs cmsRm
