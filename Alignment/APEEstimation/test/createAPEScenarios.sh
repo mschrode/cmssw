@@ -1,0 +1,37 @@
+#! /bin/bash
+
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTPB mySigma=5
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTPE mySigma=5
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTIB mySigma=5
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTOB mySigma=5
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTID mySigma=5
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTEC mySigma=5
+
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTPB mySigma=10
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTPE mySigma=10
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTIB mySigma=10
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTOB mySigma=10
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTID mySigma=10
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTEC mySigma=10
+
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTPB mySigma=20
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTPE mySigma=20
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTIB mySigma=20
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTOB mySigma=20
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTID mySigma=20
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTEC mySigma=20
+
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTPB mySigma=50
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTPE mySigma=50
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTIB mySigma=50
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTOB mySigma=50
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTID mySigma=50
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTEC mySigma=50
+
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTPB mySigma=100
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTPE mySigma=100
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTIB mySigma=100
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTOB mySigma=100
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTID mySigma=100
+cmsRun createRandomlyMisalignedGeometry_cfg.py myScenario=MisalignedTEC mySigma=100
+
