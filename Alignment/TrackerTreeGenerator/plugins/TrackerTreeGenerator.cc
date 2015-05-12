@@ -123,9 +123,7 @@ TrackerTreeGenerator::analyze(const edm::Event& iEvent, const edm::EventSetup& i
    edm::ESHandle<GeometricDet> geometricDet;
    iSetup.get<IdealGeometryRecord>().get(geometricDet);
    TrackerGeomBuilderFromGeometricDet trackerBuilder;
-   //tkGeom = trackerBuilder.build(&(*geometricDet));
-   tkGeom = trackerBuilder.build(&*geometricDet, theParameterSet);
- //   TrackerGeometry* build(const GeometricDet* gd, const edm::ParameterSet& pSet );
+   tkGeom = trackerBuilder.build(&(*geometricDet), theParameterSet);
  
    const TrackerGeometry *bareTkGeomPtr = &(*tkGeom);
    

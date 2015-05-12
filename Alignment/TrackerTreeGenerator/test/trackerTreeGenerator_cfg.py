@@ -57,20 +57,10 @@ process.load("Configuration.Geometry.GeometryDB_cff")
 ##
 # use always ideal conditions to get no influence from Alignment on absolute Positions, Orientations...
 # so it is clear that when choosing special regions in e.g. globalPhi, Modules of the same Rod are contained in the same region
-# --- this is now improved, it is always taken from ideal geometry independent of the GlobalTag
-#//////////////old
-###process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
-#process.GlobalTag.globaltag = 'DESIGN42_V11::All'
-#process.GlobalTag.globaltag = 'DESIGN53_V9::All'
-#process.GlobalTag.globaltag = 'DESIGN72_V1::All'
-###process.GlobalTag.globaltag = 'POSTLS170_V6::All'
-
-#////////old end////////////////////new begin
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 from Configuration.AlCa.GlobalTag import GlobalTag
-#process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_mc', '')
-process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:mc', '')
-#/////new end
+process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_design', '')
+print "Using global tag "+process.GlobalTag.globaltag._value
 
 
 ##
