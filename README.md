@@ -1,3 +1,5 @@
+--- APEFromMisalignment_7_4_1 branch ---
+
 Implements a simple procedure to approximate Alignment Parameter Errors (APEs):
 
 1) Start with an MC sample. Here, the true geometry IDEAL of the tracker that has been assumed at generation (of the hits) is known.
