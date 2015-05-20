@@ -16,7 +16,7 @@ options.register('myScenario',
                  "scenario to apply")
 
 options.register('mySigma',
-                 100, # default value
+                 -1, # default value
                  VarParsing.VarParsing.multiplicity.singleton, # singleton or list
                  VarParsing.VarParsing.varType.float, # string, int, or float
                  "sigma for random misalignment in um")
@@ -78,23 +78,19 @@ if isMatched is not True:
     os._exit(1)
 
 sigma = options.mySigma
-process.AlignmentProducer.MisalignmentScenario.scale = cms.double(0.0001*sigma) # shifts are in cm
+if sigma > 0:
+    process.AlignmentProducer.MisalignmentScenario.scale = cms.double(0.0001*sigma) # shifts are in cm
 
 process.AlignmentProducer.saveToDB=True
 process.AlignmentProducer.saveApeToDB=False
 
 ###################################################################
-# The module
-###################################################################
-#process.prod = cms.EDAnalyzer("TestAnalyzer",
-#    fileName = cms.untracked.string('misaligned.root')
-#)
-
-###################################################################
 # Output name
 ###################################################################
 outputfilename = None
-scenariolabel = str(options.myScenario)+str(sigma)
+scenariolabel = str(options.myScenario)
+if sigma > 0:
+    scenariolabel = scenariolabel+str(sigma)
 outputfilename = "geometry_"+str(scenariolabel)+"_from"+process.GlobalTag.globaltag._value.replace('::All','')+".db"
 
 ###################################################################
@@ -125,6 +121,3 @@ process.PoolDBOutputService = cms.Service("PoolDBOutputService",
     )
 )
 process.PoolDBOutputService.DBParameters.messageLevel = 2
-
-
-

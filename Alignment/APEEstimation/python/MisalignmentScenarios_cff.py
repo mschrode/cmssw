@@ -265,3 +265,66 @@ MisalignedTEC = cms.PSet(
         )
     )
 )
+
+
+MisalignmentAPEScenarioBase = cms.PSet(
+    # Sigma in mum
+    #   BPIX:   20
+    #   BPIX-y: 10
+    #   FPIX:   10
+    #   FPIX-y: 20
+    #   TEC:    20
+    #   TIB:    10
+    #   TID:    10
+    #   TOB:    10 
+    MisalignmentScenarioSettings,
+    scale = cms.double(0.0001), # shifts in 1um
+
+    TPBHalfBarrels = cms.PSet(
+        DetUnits = cms.PSet(
+            dZlocal = cms.double(20),
+            dYlocal = cms.double(10),
+            dXlocal = cms.double(20),
+        ),
+    ),
+
+    TIBHalfBarrels = cms.PSet(
+        DetUnits = cms.PSet(
+            dZlocal = cms.double(10),
+            dYlocal = cms.double(10),
+            dXlocal = cms.double(10),
+        ),
+    ),
+
+    TOBHalfBarrels = cms.PSet(
+        DetUnits = cms.PSet(
+            dZlocal = cms.double(10),
+            dYlocal = cms.double(10),
+            dXlocal = cms.double(10),
+        ),
+    ),
+
+    TPEEndcaps = cms.PSet(
+        DetUnits = cms.PSet(
+            dZlocal = cms.double(20),
+            dYlocal = cms.double(20),
+            dXlocal = cms.double(10),
+        ),
+    ),
+
+    TIDEndcaps = cms.PSet(
+        DetUnits = cms.PSet(
+            dZlocal = cms.double(10),
+            dYlocal = cms.double(10),
+            dXlocal = cms.double(10),
+        ),
+    ),
+
+    TECEndcaps = cms.PSet(
+        DetUnits = cms.PSet(
+            dZlocal = cms.double(20),
+            dYlocal = cms.double(20),
+            dXlocal = cms.double(20),
+        ),
+    ),
+)

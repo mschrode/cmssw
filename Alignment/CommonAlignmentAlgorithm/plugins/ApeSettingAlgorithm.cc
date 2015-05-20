@@ -7,6 +7,8 @@
  *  (last update by $Author: innocent $)
  */
 /*
+ * The APE record and the ASCII file contain the covariance matrix elements
+ * in units of cm^2
  *# Parameters:
  *#    saveApeToASCII -- Do we write out an APE text file?
  *#    saveComposites -- Do we write APEs for composite detectors?

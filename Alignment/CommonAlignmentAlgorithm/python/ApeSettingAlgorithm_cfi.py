@@ -10,10 +10,10 @@ ApeSettingAlgorithm = cms.PSet(
     saveLocalNotGlobal = cms.untracked.bool(False),
     apeASCIISaveFile = cms.untracked.string('ApeDump.txt'),
     readApeFromASCII = cms.bool(False),
-    readLocalNotGlobal = cms.bool(False),
+    readLocalNotGlobal = cms.bool(True),
     readFullLocalMatrix = cms.bool(False),
     setComposites = cms.bool(False),
-    apeASCIIReadFile = cms.FileInPath('Alignment/CommonAlignmentAlgorithm/test/apeinput.txt')
+    apeASCIIReadFile = cms.FileInPath('Alignment/CommonAlignmentAlgorithm/test/ShortLocalInput.txt')
 )
 
 # Parameters:
