@@ -55,32 +55,32 @@ void scaleAPEs(std::vector<double>& apes, const double scale) {
 
 void writeAPEsInASCII(const TString& outName="ape.txt") {
   // set APEs (in mum) for different subdetectors
-  apesBPX[0] = 20;
-  apesBPX[1] = 10;
-  apesBPX[2] = 20;
+  apesBPX[0] = 5;
+  apesBPX[1] = 5;
+  apesBPX[2] = 5;
   
-  apesFPX[0] = 10;
-  apesFPX[1] = 20;
-  apesFPX[2] = 20;
+  apesFPX[0] = 5;
+  apesFPX[1] = 5;
+  apesFPX[2] = 5;
   
-  apesTIB[0] = 10;
-  apesTIB[1] = 10;
-  apesTIB[2] = 10;
+  apesTIB[0] = 5;
+  apesTIB[1] = 5;
+  apesTIB[2] = 5;
   
-  apesTOB[0] = 10;
-  apesTOB[1] = 10;
-  apesTOB[2] = 10;
+  apesTOB[0] = 5;
+  apesTOB[1] = 5;
+  apesTOB[2] = 5;
   
-  apesTID[0] = 10;
-  apesTID[1] = 10;
-  apesTID[2] = 10;
+  apesTID[0] = 5;
+  apesTID[1] = 5;
+  apesTID[2] = 5;
   
-  apesTEC[0] = 20;
-  apesTEC[1] = 20;
-  apesTEC[2] = 20;
+  apesTEC[0] = 5;
+  apesTEC[1] = 5;
+  apesTEC[2] = 5;
 
   // scale APEs by
-  const double scale = 2.;
+  const double scale = 1.;
   std::cout << "Scaling APEs by " << scale << std::endl;
   scaleAPEs(apesBPX,scale);
   scaleAPEs(apesFPX,scale);
