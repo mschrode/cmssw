@@ -21,7 +21,7 @@ GT = "auto:run2_design"
 #
 # read the APE from database or from ASCII
 # True: from database, False: from ASCII
-readAPEFromDB = True
+readAPEFromDB = False
 
 ### specify APE input from database (only relevant if 'readAPEFromDB=True')
 #
@@ -40,7 +40,7 @@ readDBTag     = "TrackerAlignmentExtendedErrors_v4_offline_IOVs"
 ### specify APE input from ASCII (only relevant if 'readAPEFromDB=False')
 #
 # file name (relative to $CMSSW_BASE/src)
-readASCIIFile = "Alignment/APEEstimation/macros/apes_startup_pessimistic.txt"
+readASCIIFile = "Alignment/APEEstimation/macros/ape.txt"
 #
 
 ### specify APE output to ASCII file
@@ -51,7 +51,7 @@ saveASCIIFile = "myDump.txt"
 ### specify APE output to database file
 #
 saveAPEtoDB = True
-saveAPEFile = "TkAlignmentApe.db"
+saveAPEFile = "startup.db"
 saveAPETag  = "testTagAPE"
 
 
@@ -94,22 +94,22 @@ from Alignment.CommonAlignmentAlgorithm.ApeSettingAlgorithm_cfi import ApeSettin
 #
 # general settings
 process.AlignmentProducer.algoConfig = ApeSettingAlgorithm.clone()
-process.AlignmentProducer.algoConfig.setComposites       = cms.bool(False)
-process.AlignmentProducer.algoConfig.saveComposites      = cms.untracked.bool(False)
-process.AlignmentProducer.algoConfig.readLocalNotGlobal  = cms.bool(False)
-process.AlignmentProducer.algoConfig.readFullLocalMatrix = cms.bool(True)
-process.AlignmentProducer.algoConfig.saveLocalNotGlobal  = cms.untracked.bool(False)
+process.AlignmentProducer.algoConfig.setComposites       = False
+process.AlignmentProducer.algoConfig.saveComposites      = False
+process.AlignmentProducer.algoConfig.readLocalNotGlobal  = False
+process.AlignmentProducer.algoConfig.readFullLocalMatrix = True
+process.AlignmentProducer.algoConfig.saveLocalNotGlobal  = False
 #
 # define how APEs are read: either from DB or from ASCII
-process.AlignmentProducer.applyDbAlignment            = cms.untracked.bool(readAPEFromDB)
-process.AlignmentProducer.checkDbAlignmentValidity    = cms.untracked.bool(False) # enable reading from tags with several IOVs
-process.AlignmentProducer.algoConfig.readApeFromASCII = cms.bool(not readAPEFromDB)
+process.AlignmentProducer.applyDbAlignment            = readAPEFromDB
+process.AlignmentProducer.checkDbAlignmentValidity    = False # enable reading from tags with several IOVs
+process.AlignmentProducer.algoConfig.readApeFromASCII = not readAPEFromDB
 process.AlignmentProducer.algoConfig.apeASCIIReadFile = cms.FileInPath(readASCIIFile)
 #
 # define how APEs are written
-process.AlignmentProducer.saveApeToDB                 = cms.bool(saveAPEtoDB)
-process.AlignmentProducer.algoConfig.saveApeToASCII   = cms.untracked.bool(saveAPEtoASCII)
-process.AlignmentProducer.algoConfig.apeASCIISaveFile = cms.untracked.string(saveASCIIFile)
+process.AlignmentProducer.saveApeToDB                 = saveAPEtoDB
+process.AlignmentProducer.algoConfig.saveApeToASCII   = saveAPEtoASCII
+process.AlignmentProducer.algoConfig.apeASCIISaveFile = saveASCIIFile
 
 
 ### specify the output database file
