@@ -10,7 +10,7 @@ process = cms.Process("Misaligner")
 options = VarParsing.VarParsing()
 
 options.register('myScenario',
-                 "MisalignmentScenario100Mu", # default value
+                 "MisalignmentAPEScenarioSame", # default value
                  VarParsing.VarParsing.multiplicity.singleton, # singleton or list
                  VarParsing.VarParsing.varType.string, # string, int, or float
                  "scenario to apply")
@@ -33,8 +33,6 @@ process.MessageLogger.cout = cms.untracked.PSet(
         limit = cms.untracked.int32(10000000)
     )
 )
-# replace MessageLogger.debugModules = { "*" }
-# service = Tracer {}
 
 ###################################################################
 # Ideal geometry producer and standard includes
