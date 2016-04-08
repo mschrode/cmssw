@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "TCanvas.h"
+#include "TError.h"
 #include "TFile.h"
 #include "TH1.h"
 #include "TH1D.h"
@@ -149,10 +150,35 @@ void plotNFired(const std::vector<Trigger>& triggers) {
   TCanvas* can = new TCanvas("can","N(fired)",1000,750);
   can->cd();
   h->Draw("HIST");
+  can->SetGridy();
   can->SaveAs("NFired.pdf");
+  delete can;
 
+  // for busy plots: only those triggers, which fired more than 10% of the events
+  std::vector<TString> importantTriggersNames(1,h->GetXaxis()->GetBinLabel(1));
+  std::vector<double> importantTriggersNFired(1,h->GetBinContent(1));
+  for(int bin = 2; bin <= h->GetNbinsX(); ++bin) {
+    const double num = h->GetBinContent(bin);
+    if( num/importantTriggersNFired.front() > 0.1 ) {
+      importantTriggersNames.push_back(h->GetXaxis()->GetBinLabel(bin));
+      importantTriggersNFired.push_back(h->GetBinContent(bin));
+    }
+  }
+  delete h;
+
+  h = new TH1D("hNFiredImportant",";;N(events)",importantTriggersNames.size(),0,importantTriggersNames.size());
+  for(int bin = 1; bin <= h->GetNbinsX(); ++bin) {
+    h->GetXaxis()->SetBinLabel(bin,importantTriggersNames.at(bin-1));
+    h->SetBinContent(bin,importantTriggersNFired.at(bin-1));
+  }
+  can = new TCanvas("can","important N(fired)",1000,750);
+  can->cd();
+  h->Draw("HIST");
+  can->SetGridy();
+  can->SaveAs("NFiredImportant.pdf");
   delete h;
   delete can;
+
 
   // plot overlap (only for triggers which fired at least once)
   for( auto& trigger: triggers ) {
@@ -181,6 +207,7 @@ void plotNFired(const std::vector<Trigger>& triggers) {
       TCanvas* can = new TCanvas("can","N(overlaps)",1000,750);
       can->cd();
       h->Draw("HIST");
+      can->SetGridy();
       can->SaveAs("Overlaps_"+trigger.name()+".pdf");
 
       delete h;
@@ -193,7 +220,9 @@ void plotNFired(const std::vector<Trigger>& triggers) {
 void hltSelectionAnalysis() {
   gErrorIgnoreLevel = 1001;  // Suppress message when canvas has been saved
 
-  std::vector<TString> fileNames { "HLTSelection.root" };
+  std::vector<TString> fileNames { 
+    "HLTSelection_HLTPhysics-TkAlMinBias_Run2015D-PromptReco-v4.root"
+  };
   std::vector<Trigger> triggers = readTriggers(fileNames,"analysis/TriggerResults");
   plotNFired(triggers);
 }
