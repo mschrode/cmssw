@@ -12,12 +12,12 @@ scram b -j 4
 
 ## Offline validation (DMR)
 We will run an example of the "offline validation" ("DMR plots") for the ideal detector (perfect alignment) and several mis-aligned detectors.
-Visit the [https://twiki.cern.ch/twiki/bin/view/CMS/TkAlAllInOneValidation][documentation TWiki] for more information.
+Visit the [documentation TWiki](https://twiki.cern.ch/twiki/bin/view/CMS/TkAlAllInOneValidation) for more information.
 
 
 ### Create the misalignment scenario
 We will use the `CommonAlignmentProducer` to create a misaligned geometry.
-Visit the [https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMisalignmentTools][documentation TWiki] for more information.
+Visit the [documentation TWiki](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMisalignmentTools) for more information.
 
 Go to `Alignment/Introduction/test` and run
 ```bash
@@ -66,7 +66,7 @@ conddb --db geometry_PixelMisalignmentScenario1_from80X_mcRun2_design_v20.db lis
 
 ### Produce geometry-comparison and offline-validation plots
 The offline validation as well as other TkAl validation plots are configured and run via the "all-in-one" tool (invoked with `validateAlignments.py`).
-Visit the [https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMisalignmentTools][documentation TWiki] for more information.
+Visit the [documentation TWiki](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMisalignmentTools) for more information.
 
 Go to `Alignment/Introduction/test`.
 The validation job is configured via an `.ini` file.
@@ -74,7 +74,7 @@ An example for our purpose is
 ```bash
 example.ini
 ```
-Browse it and familiarize yourself with the different config settings; they are documented [https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMisalignmentTools][here].
+Browse it and familiarize yourself with the different config settings; they are documented [here](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMisalignmentTools).
 Where are the following parameters defined:
 - the alignments to compare?
 - the input data for the DMR plots? Where exactly are the files located?
